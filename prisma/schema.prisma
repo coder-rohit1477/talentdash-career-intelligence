@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id             String   @id @default(cuid())
+  name           String
+  slug           String   @unique
+  industry       String?
+  headquarters   String?
+  foundedYear    Int?
+  headcountRange String?  // e.g., "10,001+", "5,001-10,000"
+  salaries       Salary[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Salary {
+  id                String   @id @default(cuid())
+  role              String
+  level             String?
+  location          String?
+  currency          String   @default("USD")
+  experienceYears   Int
+  baseSalary        Int
+  bonus             Int      @default(0)
+  stock             Int      @default(0)
+  totalCompensation Int      // Calculated: baseSalary + bonus + stock
+  companyId         String
+  company           Company  @relation(fields: [companyId], references: [id])
+  postedAt          DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([companyId])
+}
