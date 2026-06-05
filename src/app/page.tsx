@@ -2,6 +2,8 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import SalarySearch from "./SalarySearch";
 
+export const dynamic = "force-dynamic";
+
 const formatINR = (value: number) => {
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',

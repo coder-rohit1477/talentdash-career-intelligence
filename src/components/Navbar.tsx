@@ -15,12 +15,12 @@ export function Navbar() {
   return (
     <nav className="bg-white border-b border-[#EBEBEB] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center space-x-8">
-            <Link href="/" className="flex-shrink-0 flex items-center font-bold text-2xl text-[#FF5A5F] tracking-tighter">
+        <div className="flex justify-between items-center h-16 overflow-x-auto no-scrollbar">
+          <div className="flex items-center space-x-4 md:space-x-8 flex-shrink-0">
+            <Link href="/" className="flex-shrink-0 flex items-center font-bold text-xl md:text-2xl text-[#FF5A5F] tracking-tighter">
               TalentDash
             </Link>
-            <div className="hidden sm:flex sm:space-x-8 h-full">
+            <div className="flex space-x-4 md:space-x-8 h-16">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
