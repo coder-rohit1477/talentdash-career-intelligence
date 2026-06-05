@@ -8,7 +8,7 @@ The platform enables professionals to explore compensation trends, compare leadi
 
 ## Live Demo
 
-Deployment: Not deployed yet
+Deployment link : https://talentdash-career-intelligence-12k5j9dob.vercel.app/
 
 ---
 
